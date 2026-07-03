@@ -1,0 +1,128 @@
+@import "tailwindcss";
+
+:root {
+  --background: #050505;
+  --foreground: #f4f4f0;
+  --foreground-muted: #9a9a94;
+  --accent: #c5a059;
+  --accent-light: #d4af37;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-foreground-muted: var(--foreground-muted);
+  --color-cream: #f4f4f0;
+  --color-onyx: #050505;
+  --color-champagne: #c5a059;
+  --color-champagne-light: #d4af37;
+
+  --font-sans: var(--font-inter);
+  --font-heading: var(--font-playfair);
+
+  --animate-fade-in-up: fade-in-up 1.2s ease-out forwards;
+  --animate-scroll-line: scroll-line 2s ease-in-out infinite;
+  --animate-lightbox-backdrop: lightbox-backdrop 0.6s ease-out forwards;
+  --animate-lightbox-content: lightbox-content 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+
+  @keyframes lightbox-backdrop {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes lightbox-content {
+    from {
+      opacity: 0;
+      transform: translateY(1.5rem) scale(0.98);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+
+  @keyframes fade-in-up {
+    from {
+      opacity: 0;
+      transform: translateY(2.5rem);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes scroll-line {
+    0%,
+    100% {
+      opacity: 0.3;
+      transform: scaleY(0.6);
+    }
+    50% {
+      opacity: 1;
+      transform: scaleY(1);
+    }
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-inter), system-ui, sans-serif;
+  min-height: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.font-heading {
+  font-family: var(--font-playfair), Georgia, "Times New Roman", serif;
+}
+
+.section-eyebrow {
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.input-luxury {
+  width: 100%;
+  border: 0;
+  border-bottom: 1px solid rgb(255 255 255 / 0.2);
+  background: transparent;
+  border-radius: 0;
+  padding: 0.875rem 0;
+  color: var(--foreground);
+  transition: border-color 0.5s ease;
+}
+
+.input-luxury::placeholder {
+  color: rgb(255 255 255 / 0.3);
+}
+
+.input-luxury:focus {
+  outline: none;
+  border-bottom-color: var(--accent);
+}
+
+.stat-card {
+  background: rgb(255 255 255 / 0.03);
+  border: 1px solid rgb(255 255 255 / 0.08);
+}
+
+.divider-gold {
+  height: 1px;
+  width: 4rem;
+  background: rgb(197 160 89 / 0.5);
+}
