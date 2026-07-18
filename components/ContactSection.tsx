@@ -1,5 +1,5 @@
-import Button from "./Button";
 import ScrollReveal from "./ScrollReveal";
+import ReservationForm from "./ReservationForm";
 
 const contactDetails = [
   { label: "Adresse", value: "42 Avenue de la République, 75011 Paris" },
@@ -44,107 +44,7 @@ export default function ContactSection() {
           </ScrollReveal>
 
           <ScrollReveal delay={160}>
-            <form className="space-y-8">
-              <div className="grid gap-6 sm:grid-cols-2">
-                <div>
-                  <label
-                    htmlFor="name"
-                    className="mb-2 block text-xs text-foreground-muted"
-                  >
-                    Nom *
-                  </label>
-                  <input
-                    id="name"
-                    type="text"
-                    required
-                    placeholder="Jean Dupont"
-                    className="input-luxury"
-                  />
-                </div>
-                <div>
-                  <label
-                    htmlFor="email"
-                    className="mb-2 block text-xs text-foreground-muted"
-                  >
-                    Email *
-                  </label>
-                  <input
-                    id="email"
-                    type="email"
-                    required
-                    placeholder="jean.dupont@email.com"
-                    className="input-luxury"
-                  />
-                </div>
-              </div>
-
-              <div className="grid gap-6 sm:grid-cols-2">
-                <div>
-                  <label
-                    htmlFor="phone"
-                    className="mb-2 block text-xs text-foreground-muted"
-                  >
-                    Téléphone *
-                  </label>
-                  <input
-                    id="phone"
-                    type="tel"
-                    required
-                    placeholder="+33 6 00 00 00 00"
-                    className="input-luxury"
-                  />
-                </div>
-                <div>
-                  <label
-                    htmlFor="guests"
-                    className="mb-2 block text-xs text-foreground-muted"
-                  >
-                    Convives *
-                  </label>
-                  <select
-                    id="guests"
-                    required
-                    className="input-luxury cursor-pointer appearance-none"
-                    defaultValue="2"
-                  >
-                    {[1, 2, 3, 4, 5, 6, 7, 8].map((n) => (
-                      <option key={n} value={n} className="bg-surface">
-                        {n} {n === 1 ? "personne" : "personnes"}
-                      </option>
-                    ))}
-                  </select>
-                </div>
-              </div>
-
-              <div>
-                <label
-                  htmlFor="date"
-                  className="mb-2 block text-xs text-foreground-muted"
-                >
-                  Date *
-                </label>
-                <input id="date" type="date" required className="input-luxury" />
-              </div>
-
-              <div>
-                <label
-                  htmlFor="message"
-                  className="mb-2 block text-xs text-foreground-muted"
-                >
-                  Message
-                </label>
-                <textarea
-                  id="message"
-                  rows={3}
-                  placeholder="Occasion, allergies…"
-                  className="input-luxury resize-none"
-                />
-              </div>
-
-              <Button type="submit" className="w-full sm:w-auto">
-                Envoyer
-              </Button>
-            </form>
+            <ReservationForm />
           </ScrollReveal>
         </div>
       </div>
