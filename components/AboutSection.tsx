@@ -8,11 +8,11 @@ export default function AboutSection() {
         <div className="grid items-center gap-16 lg:grid-cols-2 lg:gap-20">
           <ScrollReveal>
             <div>
-              <p className="section-eyebrow">Le restaurant</p>
-              <h2 className="font-heading mt-6 text-5xl font-normal leading-[1.05] text-cream sm:text-6xl lg:text-7xl">
-                Black Angus,
+              <p className="section-eyebrow">La maison</p>
+              <h2 className="section-title mt-6 text-5xl sm:text-6xl lg:text-[4.25rem]">
+                Ici, on prend
                 <br />
-                <span className="italic text-champagne">avenue République</span>
+                le temps du bœuf
               </h2>
               <p className="mt-8 max-w-md text-[0.95rem] leading-[1.85] text-foreground-muted">
                 On sélectionne la viande, on la mature, on la grille. Salade,

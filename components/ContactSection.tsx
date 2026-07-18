@@ -18,8 +18,10 @@ export default function ContactSection() {
         <ScrollReveal>
           <div>
             <p className="section-eyebrow">Réservation</p>
-            <h2 className="font-heading mt-6 text-5xl font-normal text-cream sm:text-6xl lg:text-7xl">
-              Une table
+            <h2 className="section-title mt-6 text-5xl sm:text-6xl lg:text-[4.25rem]">
+              Gardez-nous
+              <br />
+              <span className="italic font-normal text-champagne">une table</span>
             </h2>
           </div>
         </ScrollReveal>

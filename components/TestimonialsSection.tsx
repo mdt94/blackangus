@@ -24,9 +24,11 @@ export default function TestimonialsSection() {
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <ScrollReveal>
           <div className="max-w-xl">
-            <p className="section-eyebrow">Avis</p>
-            <h2 className="font-heading mt-6 text-5xl font-normal text-cream sm:text-6xl lg:text-7xl">
-              Ce qu&apos;on dit
+            <p className="section-eyebrow">Les clients</p>
+            <h2 className="section-title mt-6 text-5xl sm:text-6xl lg:text-[4.25rem]">
+              On nous
+              <br />
+              en parle
             </h2>
           </div>
         </ScrollReveal>

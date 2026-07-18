@@ -69,9 +69,11 @@ export default function GallerySection() {
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <ScrollReveal>
           <div className="max-w-xl">
-            <p className="section-eyebrow">Photos</p>
-            <h2 className="font-heading mt-6 text-5xl font-normal text-cream sm:text-6xl lg:text-7xl">
-              À table
+            <p className="section-eyebrow">En images</p>
+            <h2 className="section-title mt-6 text-5xl sm:text-6xl lg:text-[4.25rem]">
+              Ce qu&apos;on
+              <br />
+              met dans l&apos;assiette
             </h2>
             <p className="mt-6 text-[0.95rem] text-foreground-muted">
               Survolez une photo pour le détail.

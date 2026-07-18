@@ -17,14 +17,13 @@ export default function Error({
   return (
     <main className="flex min-h-screen flex-col items-center justify-center bg-background px-6 text-center">
       <p className="section-eyebrow">Un instant</p>
-      <h1 className="font-heading mt-6 text-6xl font-normal text-cream sm:text-7xl lg:text-8xl">
-        Quelque chose
+      <h1 className="section-title mt-6 text-6xl sm:text-7xl lg:text-8xl">
+        Petit souci
         <br />
-        <span className="italic text-champagne">s&apos;est figé</span>
+        <span className="italic font-normal text-champagne">de service</span>
       </h1>
       <p className="mt-6 max-w-md text-[0.95rem] leading-relaxed text-foreground-muted">
-        Pas d&apos;inquiétude — un petit contretemps côté cuisine numérique.
-        Réessayez dans un moment, ou revenez à l&apos;accueil.
+        Rien de grave — réessayez dans un moment, ou revenez à l&apos;accueil.
       </p>
       <div className="mt-12 flex flex-col items-center gap-4 sm:flex-row">
         <Button type="button" onClick={() => unstable_retry()}>
