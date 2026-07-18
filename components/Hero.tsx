@@ -1,7 +1,6 @@
 import Button from "./Button";
 
-const HERO_IMAGE =
-  "https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&q=80&w=1920";
+const HERO_IMAGE = "/images/hero-steak.jpg";
 
 export default function Hero() {
   return (

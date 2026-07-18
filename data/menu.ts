@@ -18,25 +18,19 @@ export interface MenuCategoryData {
   items: MenuItemData[];
 }
 
-const STEAK_IMAGE =
-  "https://images.unsplash.com/photo-1558030006-450675393462?auto=format&fit=crop&q=80&w=1200";
-const RIBEYE_IMAGE =
-  "https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&q=80&w=1200";
-const FILET_IMAGE =
-  "https://images.unsplash.com/photo-1600891964092-4316c288032e?auto=format&fit=crop&q=80&w=1200";
+const STEAK_IMAGE = "/images/rumsteak.jpg";
+const RIBEYE_IMAGE = "/images/sauce-verte.jpg";
+const FILET_IMAGE = "/images/filet.jpg";
 
 const SORBET_IMAGE =
   "https://images.unsplash.com/photo-1563805042-7684c019e1cb?auto=format&fit=crop&q=80&w=1200";
-const TARTE_IMAGE =
-  "https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&q=80&w=1200";
+const TARTE_IMAGE = "/images/tarte.jpg";
 const CREME_BRULEE_IMAGE =
   "https://images.unsplash.com/photo-1470124182917-cc6e71b22ecc?auto=format&fit=crop&q=80&w=1200";
 const BABA_IMAGE =
   "https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?auto=format&fit=crop&q=80&w=1200";
-const PROFITEROLES_IMAGE =
-  "https://images.unsplash.com/photo-1464305795204-6f5bbfc7fb81?auto=format&fit=crop&q=80&w=1200";
-const MOELLEUX_IMAGE =
-  "https://images.unsplash.com/photo-1606313564200-e75d5e30476e?auto=format&fit=crop&q=80&w=1200";
+const PROFITEROLES_IMAGE = "/images/profiteroles.jpg";
+const MOELLEUX_IMAGE = "/images/fondant-chocolat.jpg";
 
 const GIN_COCKTAIL_IMAGE =
   "https://images.unsplash.com/photo-1514362545857-3bc16c4c7d42?auto=format&fit=crop&q=80&w=1200";
