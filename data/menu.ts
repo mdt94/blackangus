@@ -5,6 +5,7 @@ export interface MenuItemData {
   price: string;
   image: string;
   badge?: string;
+  imagePosition?: string;
 }
 
 export type MenuCategoryId = "meats" | "desserts" | "cocktails" | "mocktails";
@@ -22,13 +23,13 @@ const STEAK_IMAGE = "/images/rumsteak.jpg";
 const RIBEYE_IMAGE = "/images/sauce-verte.jpg";
 const FILET_IMAGE = "/images/filet.jpg";
 
-const SORBET_IMAGE =
-  "https://images.unsplash.com/photo-1563805042-7684c019e1cb?auto=format&fit=crop&q=80&w=1200";
-const TARTE_IMAGE = "/images/tarte.jpg";
 const CREME_BRULEE_IMAGE =
   "https://images.unsplash.com/photo-1470124182917-cc6e71b22ecc?auto=format&fit=crop&q=80&w=1200";
+const TARTE_IMAGE = "/images/tarte.jpg";
 const BABA_IMAGE =
   "https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?auto=format&fit=crop&q=80&w=1200";
+const SORBET_IMAGE =
+  "https://images.unsplash.com/photo-1563805042-7684c019e1cb?auto=format&fit=crop&q=80&w=1200";
 const PROFITEROLES_IMAGE = "/images/profiteroles.jpg";
 const MOELLEUX_IMAGE = "/images/fondant-chocolat.jpg";
 
@@ -129,6 +130,7 @@ export const menuCategories: MenuCategoryData[] = [
         price: "12 €",
         image: MOELLEUX_IMAGE,
         badge: "Chef's Choice",
+        imagePosition: "center 32%",
       },
     ],
   },

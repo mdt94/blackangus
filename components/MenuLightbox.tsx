@@ -74,6 +74,11 @@ export default function MenuLightbox({ item, onClose }: MenuLightboxProps) {
             fill
             sizes="(max-width: 768px) 100vw, 512px"
             className="object-cover transition-transform duration-700 ease-out"
+            style={
+              item.imagePosition
+                ? { objectPosition: item.imagePosition }
+                : undefined
+            }
             priority
           />
           <div
