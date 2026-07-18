@@ -34,20 +34,20 @@ export default function MenuLightbox({ item, onClose }: MenuLightboxProps) {
   return createPortal(
     <div
       key={item.id}
-      className="animate-lightbox-backdrop fixed inset-0 z-[100] flex items-center justify-center overflow-y-auto overscroll-y-contain bg-black/70 p-5 backdrop-blur-sm sm:p-8"
+      className="animate-lightbox-backdrop fixed inset-0 z-[100] flex items-center justify-center overflow-y-auto overscroll-y-contain bg-[#141210]/75 p-5 backdrop-blur-sm sm:p-8"
       role="dialog"
       aria-modal="true"
       aria-labelledby="lightbox-title"
       onClick={onClose}
     >
       <div
-        className="animate-lightbox-content relative mx-auto w-full max-w-md border border-white/10 bg-onyx/95 shadow-[0_24px_80px_rgba(0,0,0,0.6)] sm:max-w-lg"
+        className="animate-lightbox-content relative mx-auto w-full max-w-md border border-line bg-surface sm:max-w-lg"
         onClick={(e) => e.stopPropagation()}
       >
         <button
           type="button"
           onClick={onClose}
-          className="absolute top-0 right-0 z-10 flex h-12 w-12 items-center justify-center text-neutral-200/50 transition-colors duration-500 hover:text-champagne"
+          className="absolute top-0 right-0 z-10 flex h-12 w-12 items-center justify-center text-cream/40 transition-colors duration-300 hover:text-champagne"
           aria-label="Fermer"
         >
           <span className="sr-only">Fermer</span>
@@ -73,7 +73,7 @@ export default function MenuLightbox({ item, onClose }: MenuLightboxProps) {
             alt={item.name}
             fill
             sizes="(max-width: 768px) 100vw, 512px"
-            className="object-cover transition-transform duration-700 ease-out"
+            className="object-cover"
             style={
               item.imagePosition
                 ? { objectPosition: item.imagePosition }
@@ -82,28 +82,25 @@ export default function MenuLightbox({ item, onClose }: MenuLightboxProps) {
             priority
           />
           <div
-            className="pointer-events-none absolute inset-0 bg-gradient-to-t from-onyx via-onyx/20 to-transparent"
+            className="pointer-events-none absolute inset-0 bg-gradient-to-t from-surface via-transparent to-transparent"
             aria-hidden="true"
           />
         </div>
 
-        <div className="px-8 pt-2 pb-10 text-center sm:px-10 sm:pb-12">
+        <div className="px-8 pt-1 pb-10 text-center sm:px-10 sm:pb-12">
           {item.badge && (
-            <p className="text-[10px] font-medium uppercase tracking-[0.35em] text-champagne">
-              {item.badge}
-            </p>
+            <p className="text-xs text-champagne">{item.badge}</p>
           )}
           <h3
             id="lightbox-title"
-            className="font-heading mt-3 text-2xl font-normal text-neutral-200 sm:text-3xl"
+            className="font-heading mt-2 text-2xl font-normal text-cream sm:text-3xl"
           >
             {item.name}
           </h3>
-          <div className="divider-gold mx-auto mt-6" aria-hidden="true" />
-          <p className="mx-auto mt-6 max-w-xs text-sm leading-relaxed tracking-wide text-foreground-muted italic">
+          <p className="mx-auto mt-4 max-w-xs text-sm leading-relaxed text-foreground-muted">
             {item.description}
           </p>
-          <p className="font-heading mt-8 text-xl tracking-wide text-champagne sm:text-2xl">
+          <p className="font-heading mt-6 text-xl text-champagne sm:text-2xl">
             {item.price}
           </p>
         </div>

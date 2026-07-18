@@ -7,9 +7,9 @@ import { lockBodyScroll, unlockBodyScroll } from "@/lib/scroll-lock";
 
 const navLinks = [
   { href: "#accueil", label: "Accueil" },
-  { href: "#a-propos", label: "À Propos" },
+  { href: "#a-propos", label: "À propos" },
   { href: "#menu", label: "Menu" },
-  { href: "#galerie", label: "Galerie" },
+  { href: "#galerie", label: "Photos" },
   { href: "#avis", label: "Avis" },
   { href: "#contact", label: "Contact" },
 ];
@@ -39,27 +39,26 @@ export default function Navbar() {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-700 ${
+      className={`fixed top-0 right-0 left-0 z-50 transition-colors duration-500 ${
         scrolled
-          ? "border-b border-white/10 bg-black/80 backdrop-blur-xl"
+          ? "border-b border-line bg-background/90 backdrop-blur-md"
           : "bg-transparent"
       }`}
     >
-      <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-7 lg:px-8">
+      <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-5 lg:px-8 lg:py-6">
         <Link
           href="#accueil"
-          className="font-heading text-xl font-normal tracking-tight text-neutral-200 lg:text-2xl"
+          className="font-heading text-xl font-normal tracking-tight text-cream lg:text-2xl"
         >
           Black Angus
-          <span className="text-champagne">.</span>
         </Link>
 
-        <ul className="hidden items-center gap-10 lg:flex">
+        <ul className="hidden items-center gap-8 lg:flex">
           {navLinks.map((link) => (
             <li key={link.href}>
               <Link
                 href={link.href}
-                className="text-[10px] font-medium uppercase tracking-[0.25em] text-foreground-muted transition-colors duration-500 hover:text-champagne"
+                className="text-sm text-foreground-muted transition-colors duration-300 hover:text-cream"
               >
                 {link.label}
               </Link>
@@ -78,32 +77,32 @@ export default function Navbar() {
           onClick={() => setMenuOpen(!menuOpen)}
         >
           <span
-            className={`block h-px w-6 bg-neutral-200 transition-transform duration-500 ${menuOpen ? "translate-y-[5px] rotate-45" : ""}`}
+            className={`block h-px w-6 bg-cream transition-transform duration-300 ${menuOpen ? "translate-y-[5px] rotate-45" : ""}`}
           />
           <span
-            className={`block h-px w-6 bg-neutral-200 transition-opacity duration-500 ${menuOpen ? "opacity-0" : ""}`}
+            className={`block h-px w-6 bg-cream transition-opacity duration-300 ${menuOpen ? "opacity-0" : ""}`}
           />
           <span
-            className={`block h-px w-6 bg-neutral-200 transition-transform duration-500 ${menuOpen ? "-translate-y-[5px] -rotate-45" : ""}`}
+            className={`block h-px w-6 bg-cream transition-transform duration-300 ${menuOpen ? "-translate-y-[5px] -rotate-45" : ""}`}
           />
         </button>
       </nav>
 
       {menuOpen && (
-        <div className="border-t border-white/10 bg-black/95 backdrop-blur-xl lg:hidden">
-          <ul className="flex flex-col px-6 py-8">
+        <div className="border-t border-line bg-background/98 backdrop-blur-md lg:hidden">
+          <ul className="flex flex-col px-6 py-6">
             {navLinks.map((link) => (
               <li key={link.href}>
                 <Link
                   href={link.href}
                   onClick={() => setMenuOpen(false)}
-                  className="block py-4 font-heading text-2xl text-neutral-200 transition-colors duration-500 hover:text-champagne"
+                  className="block py-3 font-heading text-2xl text-cream transition-colors duration-300 hover:text-champagne"
                 >
                   {link.label}
                 </Link>
               </li>
             ))}
-            <li className="pt-8">
+            <li className="pt-6">
               <Button href="#contact" className="w-full">
                 Réserver
               </Button>

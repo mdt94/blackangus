@@ -12,42 +12,38 @@ export default function Hero() {
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{ backgroundImage: `url(${HERO_IMAGE})` }}
       />
-      <div className="absolute inset-0 bg-black/55" />
-      <div className="absolute inset-0 bg-gradient-to-b from-black/65 via-black/45 to-black" />
+      <div className="absolute inset-0 bg-[#141210]/50" />
+      <div className="absolute inset-0 bg-gradient-to-b from-[#141210]/70 via-[#141210]/40 to-background" />
 
       <div className="relative z-10 mx-auto max-w-6xl px-6 py-40 text-center lg:px-8">
-        <p className="section-eyebrow animate-fade-in-up mb-10">
-          République, Paris
+        <p className="section-eyebrow animate-fade-in-up mb-8">
+          République · Paris 11e
         </p>
-        <h1 className="font-heading animate-fade-in-up text-7xl font-normal leading-[0.95] tracking-tight text-neutral-200 sm:text-8xl lg:text-9xl xl:text-[10rem]">
+        <h1 className="font-heading animate-fade-in-up text-7xl font-normal leading-[0.92] tracking-tight text-cream sm:text-8xl lg:text-9xl xl:text-[9.5rem]">
           Black Angus
           <br />
           <span className="italic text-champagne">République</span>
         </h1>
-        <div className="animate-fade-in-up divider-gold mx-auto mt-12" />
         <p
-          className="animate-fade-in-up mx-auto mt-12 max-w-lg text-sm leading-relaxed tracking-wide text-foreground-muted sm:text-base"
-          style={{ animationDelay: "0.2s" }}
+          className="animate-fade-in-up mx-auto mt-10 max-w-md text-base leading-relaxed text-foreground-muted sm:text-lg"
+          style={{ animationDelay: "0.15s" }}
         >
-          Viande d&apos;exception, cuisine de feu et art de vivre.
-          <br className="hidden sm:block" />
-          Une adresse gastronomique au cœur de Paris.
+          Viande d&apos;exception, cuisine de feu —
+          une table au cœur de Paris.
         </p>
         <div
-          className="animate-fade-in-up mt-16 flex flex-col items-center justify-center gap-5 sm:flex-row"
-          style={{ animationDelay: "0.4s" }}
+          className="animate-fade-in-up mt-12 flex flex-col items-center justify-center gap-4 sm:flex-row"
+          style={{ animationDelay: "0.3s" }}
         >
-          <Button href="#menu">Découvrir le Menu</Button>
-          <Button href="#contact">Réserver une Table</Button>
+          <Button href="#menu">Voir la carte</Button>
+          <Button href="#contact">Réserver</Button>
         </div>
       </div>
 
-      <div className="absolute bottom-14 left-1/2 z-10 flex -translate-x-1/2 flex-col items-center gap-4">
-        <span className="text-[10px] font-medium uppercase tracking-[0.35em] text-foreground-muted">
-          Scroll
-        </span>
-        <div className="h-16 w-px origin-top animate-scroll-line bg-gradient-to-b from-champagne/80 to-transparent" />
-      </div>
+      <div
+        className="absolute bottom-10 left-1/2 z-10 h-12 w-px -translate-x-1/2 origin-top animate-scroll-line bg-gradient-to-b from-champagne/70 to-transparent"
+        aria-hidden="true"
+      />
     </section>
   );
 }

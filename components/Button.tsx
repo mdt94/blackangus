@@ -9,7 +9,7 @@ interface ButtonProps {
 }
 
 const baseStyles =
-  "inline-flex items-center justify-center rounded-none border border-white/30 bg-transparent px-8 py-3 text-xs font-medium uppercase tracking-[0.2em] text-neutral-200 transition-all duration-500 hover:border-champagne hover:text-champagne";
+  "inline-flex items-center justify-center border border-foreground/25 bg-transparent px-7 py-3 text-[0.7rem] font-medium tracking-[0.12em] uppercase text-foreground transition-colors duration-300 hover:border-champagne hover:text-champagne";
 
 export default function Button({
   href,

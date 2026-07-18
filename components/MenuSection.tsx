@@ -3,24 +3,23 @@ import MenuTabs from "./MenuTabs";
 
 export default function MenuSection() {
   return (
-    <section id="menu" className="overflow-visible bg-black py-32 lg:py-40">
+    <section id="menu" className="overflow-visible bg-surface py-28 lg:py-36">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <ScrollReveal>
-          <div className="text-center">
-            <p className="section-eyebrow">Notre Carte</p>
-            <h2 className="font-heading mt-8 text-5xl font-normal text-neutral-200 sm:text-6xl lg:text-7xl">
-              Le Menu
+          <div className="max-w-xl">
+            <p className="section-eyebrow">La carte</p>
+            <h2 className="font-heading mt-6 text-5xl font-normal text-cream sm:text-6xl lg:text-7xl">
+              Menu
             </h2>
-            <div className="divider-gold mx-auto mt-10" />
-            <p className="mx-auto mt-10 max-w-lg text-sm tracking-wide text-foreground-muted">
-              Une sélection raffinée, dressée comme une carte de restaurant
-              d&apos;exception.
+            <p className="mt-6 text-[0.95rem] leading-relaxed text-foreground-muted">
+              Viandes, desserts, cocktails et mocktails — cliquez un plat pour
+              le voir.
             </p>
           </div>
         </ScrollReveal>
 
-        <ScrollReveal delay={200}>
-          <div className="mt-24">
+        <ScrollReveal delay={160}>
+          <div className="mt-16">
             <MenuTabs />
           </div>
         </ScrollReveal>

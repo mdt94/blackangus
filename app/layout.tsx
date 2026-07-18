@@ -1,22 +1,24 @@
 import type { Metadata } from "next";
-import { Inter, Playfair_Display } from "next/font/google";
+import { Archivo, Cormorant_Garamond } from "next/font/google";
 import "../styles/globals.css";
 
-const inter = Inter({
-  variable: "--font-inter",
+const archivo = Archivo({
+  variable: "--font-body",
   subsets: ["latin"],
+  weight: ["400", "500", "600"],
 });
 
-const playfair = Playfair_Display({
-  variable: "--font-playfair",
+const cormorant = Cormorant_Garamond({
+  variable: "--font-display",
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
+  weight: ["400", "500", "600"],
+  style: ["normal", "italic"],
 });
 
 export const metadata: Metadata = {
-  title: "Black Angus République | Restaurant Gastronomique Paris",
+  title: "Black Angus République | Restaurant Paris 11e",
   description:
-    "Restaurant gastronomique d'exception spécialisé en viande Black Angus. Avenue de la République, Paris 11e.",
+    "Restaurant spécialisé en viande Black Angus, avenue de la République, Paris 11e.",
 };
 
 export default function RootLayout({
@@ -27,9 +29,9 @@ export default function RootLayout({
   return (
     <html
       lang="fr"
-      className={`${inter.variable} ${playfair.variable} scroll-smooth antialiased`}
+      className={`${archivo.variable} ${cormorant.variable} scroll-smooth antialiased`}
     >
-      <body className="min-h-screen overflow-x-hidden overflow-y-auto bg-black text-neutral-200">
+      <body className="min-h-screen overflow-x-hidden overflow-y-auto bg-background text-foreground">
         {children}
       </body>
     </html>

@@ -3,42 +3,37 @@ import ScrollReveal from "./ScrollReveal";
 
 export default function AboutSection() {
   return (
-    <section id="a-propos" className="bg-black py-32 lg:py-40">
+    <section id="a-propos" className="bg-background py-28 lg:py-36">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        <div className="grid items-center gap-16 lg:grid-cols-2 lg:gap-24">
+        <div className="grid items-center gap-16 lg:grid-cols-2 lg:gap-20">
           <ScrollReveal>
             <div>
-              <p className="section-eyebrow">Notre Histoire</p>
-              <h2 className="font-heading mt-8 text-5xl font-normal leading-tight text-neutral-200 sm:text-6xl lg:text-7xl">
-                L&apos;Excellence
+              <p className="section-eyebrow">Le restaurant</p>
+              <h2 className="font-heading mt-6 text-5xl font-normal leading-[1.05] text-cream sm:text-6xl lg:text-7xl">
+                Black Angus,
                 <br />
-                <span className="italic text-champagne">Black Angus</span>
+                <span className="italic text-champagne">avenue République</span>
               </h2>
-              <div className="divider-gold mt-10" />
-              <p className="mt-10 text-sm leading-[1.9] tracking-wide text-foreground-muted">
-                Niché sur l&apos;avenue de la République, notre restaurant
-                célèbre la viande Black Angus dans toute sa splendeur. Chaque
-                pièce est sélectionnée avec soin, maturée selon les traditions
-                artisanales et grillée à la perfection.
+              <p className="mt-8 max-w-md text-[0.95rem] leading-[1.85] text-foreground-muted">
+                On sélectionne la viande, on la mature, on la grille. Salade,
+                frites, purée — et des sauces maison versées à table.
               </p>
-              <p className="mt-6 text-sm leading-[1.9] tracking-wide text-foreground-muted">
-                De notre formule signature au filet premium, chaque assiette
-                raconte une histoire de passion, de qualité et de savoir-faire
-                français.
+              <p className="mt-5 max-w-md text-[0.95rem] leading-[1.85] text-foreground-muted">
+                Une adresse de quartier, soignée, pour manger vraiment bien.
               </p>
 
-              <dl className="mt-14 grid grid-cols-2 gap-x-8 gap-y-10">
+              <dl className="mt-12 grid grid-cols-2 gap-x-8 gap-y-8 border-t border-line pt-10">
                 {[
-                  { value: "15+", label: "Années d'expérience" },
-                  { value: "100%", label: "Black Angus certifié" },
-                  { value: "28j", label: "Maturité minimum" },
-                  { value: "4.9", label: "Note moyenne" },
+                  { value: "15+", label: "Ans sur place" },
+                  { value: "28j", label: "Maturation min." },
+                  { value: "100%", label: "Black Angus" },
+                  { value: "4.9", label: "Note clients" },
                 ].map((stat) => (
                   <div key={stat.label}>
-                    <dt className="font-heading text-3xl font-normal text-champagne sm:text-4xl">
+                    <dt className="font-heading text-3xl font-normal text-cream sm:text-4xl">
                       {stat.value}
                     </dt>
-                    <dd className="mt-3 text-[10px] uppercase tracking-[0.2em] text-foreground-muted">
+                    <dd className="mt-2 text-xs text-foreground-muted">
                       {stat.label}
                     </dd>
                   </div>
@@ -47,8 +42,8 @@ export default function AboutSection() {
             </div>
           </ScrollReveal>
 
-          <ScrollReveal delay={200}>
-            <div className="relative mx-auto w-full max-w-lg pb-16 lg:max-w-none lg:pb-20">
+          <ScrollReveal delay={160}>
+            <div className="relative mx-auto w-full max-w-lg pb-14 lg:max-w-none lg:pb-16">
               <div className="relative aspect-[3/4] overflow-hidden">
                 <Image
                   src="/images/filet.jpg"
@@ -59,7 +54,7 @@ export default function AboutSection() {
                   priority
                 />
               </div>
-              <div className="absolute -bottom-2 -left-4 w-[55%] overflow-hidden border border-white/10 shadow-[0_20px_60px_rgba(0,0,0,0.55)] sm:-left-8 sm:w-[48%] lg:bottom-4">
+              <div className="absolute -bottom-1 -left-3 w-[52%] overflow-hidden sm:-left-6 sm:w-[46%] lg:bottom-2">
                 <div className="relative aspect-[3/4]">
                   <Image
                     src="/images/sauce-verte.jpg"
