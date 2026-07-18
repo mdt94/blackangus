@@ -7,15 +7,13 @@ export default function MenuSection() {
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <ScrollReveal>
           <div className="max-w-xl">
-            <p className="section-eyebrow">À table</p>
-            <h2 className="section-title mt-6 text-5xl sm:text-6xl lg:text-[4.25rem]">
-              La carte,
-              <br />
-              <span className="italic font-normal text-champagne">sans chichi</span>
+            <p className="section-eyebrow">Gastronomie</p>
+            <h2 className="section-title mt-6 text-5xl sm:text-6xl lg:text-7xl">
+              La carte
             </h2>
             <p className="mt-6 text-[0.95rem] leading-relaxed text-foreground-muted">
-              Viandes, desserts, cocktails et mocktails — cliquez un plat pour
-              le voir.
+              Viandes, desserts et créations de bar — sélectionnez un plat pour
+              en découvrir le détail.
             </p>
           </div>
         </ScrollReveal>

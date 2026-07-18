@@ -8,26 +8,27 @@ export default function AboutSection() {
         <div className="grid items-center gap-16 lg:grid-cols-2 lg:gap-20">
           <ScrollReveal>
             <div>
-              <p className="section-eyebrow">La maison</p>
-              <h2 className="section-title mt-6 text-5xl sm:text-6xl lg:text-[4.25rem]">
-                Ici, on prend
+              <p className="section-eyebrow">Le restaurant</p>
+              <h2 className="section-title mt-6 text-5xl sm:text-6xl lg:text-7xl">
+                Black Angus
                 <br />
-                le temps du bœuf
+                <span className="italic font-normal text-champagne">République</span>
               </h2>
               <p className="mt-8 max-w-md text-[0.95rem] leading-[1.85] text-foreground-muted">
-                On sélectionne la viande, on la mature, on la grille. Salade,
-                frites, purée — et des sauces maison versées à table.
+                Avenue de la République, nous servons une viande Black Angus
+                soigneusement sélectionnée, maturée et grillée à la perfection.
               </p>
               <p className="mt-5 max-w-md text-[0.95rem] leading-[1.85] text-foreground-muted">
-                Une adresse de quartier, soignée, pour manger vraiment bien.
+                Formules signature, sauces maison et un service attentif pour
+                une table d&apos;exception.
               </p>
 
               <dl className="mt-12 grid grid-cols-2 gap-x-8 gap-y-8 border-t border-line pt-10">
                 {[
-                  { value: "15+", label: "Ans sur place" },
-                  { value: "28j", label: "Maturation min." },
+                  { value: "15+", label: "Années d'expérience" },
+                  { value: "28j", label: "Maturation minimum" },
                   { value: "100%", label: "Black Angus" },
-                  { value: "4.9", label: "Note clients" },
+                  { value: "4.9", label: "Note moyenne" },
                 ].map((stat) => (
                   <div key={stat.label}>
                     <dt className="font-heading text-3xl font-normal text-cream sm:text-4xl">

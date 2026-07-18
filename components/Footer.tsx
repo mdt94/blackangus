@@ -10,7 +10,7 @@ export default function Footer() {
               Black Angus
             </p>
             <p className="mt-4 max-w-xs text-sm leading-relaxed text-foreground-muted">
-              Viande Black Angus, avenue de la République.
+              Steakhouse Black Angus, avenue de la République — Paris 11e.
             </p>
           </div>
 

@@ -18,10 +18,10 @@ export default function ContactSection() {
         <ScrollReveal>
           <div>
             <p className="section-eyebrow">Réservation</p>
-            <h2 className="section-title mt-6 text-5xl sm:text-6xl lg:text-[4.25rem]">
-              Gardez-nous
+            <h2 className="section-title mt-6 text-5xl sm:text-6xl lg:text-7xl">
+              Une table
               <br />
-              <span className="italic font-normal text-champagne">une table</span>
+              <span className="italic font-normal text-champagne">pour vous</span>
             </h2>
           </div>
         </ScrollReveal>
@@ -30,7 +30,8 @@ export default function ContactSection() {
           <ScrollReveal>
             <div className="space-y-8">
               <p className="max-w-sm text-[0.95rem] leading-relaxed text-foreground-muted">
-                Envoyez votre demande — on confirme sous 24 heures.
+                Adressez-nous votre demande — nous confirmons votre réservation
+                sous vingt-quatre heures.
               </p>
               <dl className="space-y-6">
                 {contactDetails.map((detail) => (

@@ -17,25 +17,25 @@ export default function Hero() {
 
       <div className="relative z-10 mx-auto max-w-6xl px-6 py-40 text-center lg:px-8">
         <p className="section-eyebrow animate-fade-in-up mb-8">
-          Paris · République
+          République · Paris
         </p>
-        <h1 className="font-heading animate-fade-in-up text-7xl font-medium leading-[0.95] text-cream sm:text-8xl lg:text-9xl xl:text-[9.25rem]">
+        <h1 className="section-title animate-fade-in-up text-7xl sm:text-8xl lg:text-9xl xl:text-[9.5rem]">
           Black Angus
           <br />
           <span className="italic font-normal text-champagne">République</span>
         </h1>
         <p
-          className="animate-fade-in-up mx-auto mt-10 max-w-md text-base leading-relaxed text-foreground-muted sm:text-lg"
+          className="animate-fade-in-up mx-auto mt-10 max-w-lg text-base leading-relaxed text-foreground-muted sm:text-lg"
           style={{ animationDelay: "0.15s" }}
         >
-          Du feu, de la maturation, une bonne table —
-          au milieu du 11e.
+          Viande Black Angus, cuisine de feu et art de la table
+          au cœur de Paris.
         </p>
         <div
           className="animate-fade-in-up mt-12 flex flex-col items-center justify-center gap-4 sm:flex-row"
           style={{ animationDelay: "0.3s" }}
         >
-          <Button href="#menu">Voir la carte</Button>
+          <Button href="#menu">Découvrir la carte</Button>
           <Button href="#contact">Réserver</Button>
         </div>
       </div>
