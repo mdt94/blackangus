@@ -12,8 +12,8 @@ export default function Hero() {
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{ backgroundImage: `url(${HERO_IMAGE})` }}
       />
-      <div className="absolute inset-0 bg-black/70" />
-      <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/60 to-black" />
+      <div className="absolute inset-0 bg-black/55" />
+      <div className="absolute inset-0 bg-gradient-to-b from-black/65 via-black/45 to-black" />
 
       <div className="relative z-10 mx-auto max-w-6xl px-6 py-40 text-center lg:px-8">
         <p className="section-eyebrow animate-fade-in-up mb-10">

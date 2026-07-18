@@ -82,79 +82,73 @@ export default function GallerySection() {
           </div>
         </ScrollReveal>
 
-        <div className="mt-24 grid grid-cols-1 items-start gap-x-5 gap-y-2 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-24 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {gallery.map((shot, index) => {
             const isActive = activeId === shot.id;
 
             return (
               <ScrollReveal key={shot.id} delay={index * 70}>
-                <article
-                  className="flex flex-col"
+                <button
+                  type="button"
+                  className="group relative block aspect-[4/5] w-full cursor-pointer overflow-hidden border-0 bg-transparent p-0 text-left outline-none focus-visible:ring-1 focus-visible:ring-champagne/50"
+                  aria-label={`${shot.name}. ${shot.description}`}
+                  aria-expanded={isActive}
                   onMouseEnter={() => setActiveId(shot.id)}
                   onMouseLeave={() => setActiveId(null)}
+                  onFocus={() => setActiveId(shot.id)}
+                  onBlur={() => setActiveId(null)}
+                  onClick={() => {
+                    const canHover =
+                      typeof window !== "undefined" &&
+                      window.matchMedia("(hover: hover)").matches;
+                    if (canHover) return;
+                    setActiveId((current) =>
+                      current === shot.id ? null : shot.id,
+                    );
+                  }}
                 >
-                  <button
-                    type="button"
-                    className="group relative block aspect-[4/5] w-full cursor-pointer overflow-hidden border-0 bg-transparent p-0 text-left outline-none focus-visible:ring-1 focus-visible:ring-champagne/50"
-                    aria-expanded={isActive}
-                    aria-controls={`gallery-desc-${shot.id}`}
-                    onFocus={() => setActiveId(shot.id)}
-                    onBlur={(e) => {
-                      if (!e.currentTarget.parentElement?.contains(e.relatedTarget as Node)) {
-                        setActiveId(null);
-                      }
-                    }}
-                    onClick={() => {
-                      const canHover =
-                        typeof window !== "undefined" &&
-                        window.matchMedia("(hover: hover)").matches;
-                      if (canHover) return;
-                      setActiveId((current) =>
-                        current === shot.id ? null : shot.id,
-                      );
-                    }}
-                  >
-                    <Image
-                      src={shot.src}
-                      alt={shot.alt}
-                      fill
-                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                      className="object-cover transition-transform duration-1000 ease-out group-hover:scale-[1.03]"
-                      style={{ objectPosition: shot.objectPosition }}
-                    />
-                    <div
-                      className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/35 via-transparent to-transparent"
-                      aria-hidden="true"
-                    />
-                  </button>
+                  <Image
+                    src={shot.src}
+                    alt={shot.alt}
+                    fill
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                    className={`object-cover transition-[transform,filter] duration-700 ease-out ${
+                      isActive
+                        ? "scale-[1.03] brightness-[0.45]"
+                        : "scale-100 brightness-100 group-hover:scale-[1.03] group-hover:brightness-[0.45]"
+                    }`}
+                    style={{ objectPosition: shot.objectPosition }}
+                  />
+
+                  {/* Soft bottom veil always; stronger on hover via image brightness */}
+                  <div
+                    className={`pointer-events-none absolute inset-0 bg-gradient-to-t from-black/80 via-black/25 to-transparent transition-opacity duration-700 ${
+                      isActive
+                        ? "opacity-100"
+                        : "opacity-60 group-hover:opacity-100"
+                    }`}
+                    aria-hidden="true"
+                  />
 
                   <div
-                    id={`gallery-desc-${shot.id}`}
-                    className="grid transition-[grid-template-rows] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]"
-                    style={{
-                      gridTemplateRows: isActive ? "1fr" : "0fr",
-                    }}
+                    className={`absolute inset-x-0 bottom-0 z-10 px-6 pb-8 pt-16 transition-all duration-700 ease-out ${
+                      isActive
+                        ? "translate-y-0 opacity-100"
+                        : "translate-y-3 opacity-0 group-hover:translate-y-0 group-hover:opacity-100"
+                    }`}
                   >
-                    <div className="overflow-hidden">
-                      <div
-                        className={`px-1 pt-5 pb-6 transition-opacity duration-500 ${
-                          isActive ? "opacity-100" : "opacity-0"
-                        }`}
-                      >
-                        <p className="text-[10px] font-medium uppercase tracking-[0.3em] text-champagne">
-                          Assiette
-                        </p>
-                        <h3 className="font-heading mt-3 text-2xl font-normal text-neutral-200">
-                          {shot.name}
-                        </h3>
-                        <div className="divider-gold mt-4" />
-                        <p className="mt-4 max-w-sm text-sm leading-relaxed tracking-wide text-foreground-muted">
-                          {shot.description}
-                        </p>
-                      </div>
-                    </div>
+                    <p className="text-[10px] font-medium uppercase tracking-[0.3em] text-champagne">
+                      Assiette
+                    </p>
+                    <h3 className="font-heading mt-3 text-2xl font-normal text-neutral-200 sm:text-3xl">
+                      {shot.name}
+                    </h3>
+                    <div className="divider-gold mt-4" />
+                    <p className="mt-4 max-w-xs text-sm leading-relaxed tracking-wide text-neutral-200/75">
+                      {shot.description}
+                    </p>
                   </div>
-                </article>
+                </button>
               </ScrollReveal>
             );
           })}
