@@ -2,7 +2,7 @@ import ScrollReveal from "./ScrollReveal";
 import ReservationForm from "./ReservationForm";
 
 const contactDetails = [
-  { label: "Adresse", value: "42 Avenue de la République, 75011 Paris" },
+  { label: "Adresse", value: "8 Place de la République, 75011 Paris" },
   { label: "Téléphone", value: "+33 1 42 00 00 00" },
   { label: "Email", value: "contact@blackangus-republique.fr" },
   {

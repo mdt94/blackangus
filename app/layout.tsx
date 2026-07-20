@@ -19,7 +19,7 @@ const siteUrl = "https://www.blackangus-republique.fr";
 
 const title = "Black Angus République | Steakhouse de luxe à Paris";
 const description =
-  "Steakhouse gastronomique à Paris 11e. Viande Black Angus maturée, grillée à la perfection, sauces maison et desserts — Avenue de la République.";
+  "Steakhouse gastronomique à Paris 11e. Viande Black Angus maturée, grillée à la perfection, sauces maison et desserts — 8 Place de la République.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),

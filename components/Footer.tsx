@@ -10,7 +10,7 @@ export default function Footer() {
               Black Angus
             </p>
             <p className="mt-4 max-w-xs text-sm leading-relaxed text-foreground-muted">
-              Steakhouse Black Angus, avenue de la République — Paris 11e.
+              Steakhouse Black Angus, place de la République — Paris 11e.
             </p>
           </div>
 
@@ -53,7 +53,7 @@ export default function Footer() {
 
         <div className="mt-14 flex flex-col gap-3 border-t border-line pt-8 text-xs text-foreground-muted/70 sm:flex-row sm:items-center sm:justify-between">
           <p>© {new Date().getFullYear()} Black Angus République</p>
-          <p>42 Avenue de la République, 75011 Paris</p>
+          <p>8 Place de la République, 75011 Paris</p>
         </div>
       </div>
     </footer>

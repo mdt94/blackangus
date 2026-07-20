@@ -15,7 +15,7 @@ export default function AboutSection() {
                 <span className="italic font-normal text-champagne">République</span>
               </h2>
               <p className="mt-8 max-w-md text-[0.95rem] leading-[1.85] text-foreground-muted">
-                Avenue de la République, nous servons une viande Black Angus
+                Place de la République, nous servons une viande Black Angus
                 soigneusement sélectionnée, maturée et grillée à la perfection.
               </p>
               <p className="mt-5 max-w-md text-[0.95rem] leading-[1.85] text-foreground-muted">
