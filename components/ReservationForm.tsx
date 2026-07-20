@@ -2,6 +2,7 @@
 
 import { useState, type FormEvent } from "react";
 import Button from "./Button";
+import { useLocale } from "@/lib/i18n/LocaleProvider";
 
 type ReservationFormState = {
   name: string;
@@ -22,6 +23,8 @@ const initialState: ReservationFormState = {
 };
 
 export default function ReservationForm() {
+  const { t } = useLocale();
+  const f = t.contact.form;
   const [form, setForm] = useState<ReservationFormState>(initialState);
 
   function updateField<K extends keyof ReservationFormState>(
@@ -33,10 +36,6 @@ export default function ReservationForm() {
 
   function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
-
-    // Placeholder: connecter ici l'API / CMS / CRM de réservation
-    // (ex. POST vers /api/reservations avec le payload `form`).
-    // Pour l'instant on prépare uniquement l'état contrôlé côté client.
     void form;
   }
 
@@ -48,14 +47,14 @@ export default function ReservationForm() {
             htmlFor="name"
             className="mb-2 block text-xs text-foreground-muted"
           >
-            Nom *
+            {f.name} {f.required}
           </label>
           <input
             id="name"
             name="name"
             type="text"
             required
-            placeholder="Jean Dupont"
+            placeholder={f.namePlaceholder}
             className="input-luxury"
             value={form.name}
             onChange={(e) => updateField("name", e.target.value)}
@@ -67,14 +66,14 @@ export default function ReservationForm() {
             htmlFor="email"
             className="mb-2 block text-xs text-foreground-muted"
           >
-            Email *
+            {f.email} {f.required}
           </label>
           <input
             id="email"
             name="email"
             type="email"
             required
-            placeholder="jean.dupont@email.com"
+            placeholder={f.emailPlaceholder}
             className="input-luxury"
             value={form.email}
             onChange={(e) => updateField("email", e.target.value)}
@@ -89,14 +88,14 @@ export default function ReservationForm() {
             htmlFor="phone"
             className="mb-2 block text-xs text-foreground-muted"
           >
-            Téléphone *
+            {f.phone} {f.required}
           </label>
           <input
             id="phone"
             name="phone"
             type="tel"
             required
-            placeholder="+33 6 00 00 00 00"
+            placeholder={f.phonePlaceholder}
             className="input-luxury"
             value={form.phone}
             onChange={(e) => updateField("phone", e.target.value)}
@@ -108,7 +107,7 @@ export default function ReservationForm() {
             htmlFor="guests"
             className="mb-2 block text-xs text-foreground-muted"
           >
-            Convives *
+            {f.guests} {f.required}
           </label>
           <select
             id="guests"
@@ -120,7 +119,7 @@ export default function ReservationForm() {
           >
             {[1, 2, 3, 4, 5, 6, 7, 8].map((n) => (
               <option key={n} value={n} className="bg-surface">
-                {n} {n === 1 ? "personne" : "personnes"}
+                {n} {n === 1 ? f.guestSingular : f.guestPlural}
               </option>
             ))}
           </select>
@@ -132,7 +131,7 @@ export default function ReservationForm() {
           htmlFor="date"
           className="mb-2 block text-xs text-foreground-muted"
         >
-          Date *
+          {f.date} {f.required}
         </label>
         <input
           id="date"
@@ -150,13 +149,13 @@ export default function ReservationForm() {
           htmlFor="message"
           className="mb-2 block text-xs text-foreground-muted"
         >
-          Message
+          {f.message}
         </label>
         <textarea
           id="message"
           name="message"
           rows={3}
-          placeholder="Occasion, allergies…"
+          placeholder={f.messagePlaceholder}
           className="input-luxury resize-none"
           value={form.message}
           onChange={(e) => updateField("message", e.target.value)}
@@ -164,7 +163,7 @@ export default function ReservationForm() {
       </div>
 
       <Button type="submit" className="w-full sm:w-auto">
-        Envoyer
+        {f.submit}
       </Button>
     </form>
   );

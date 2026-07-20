@@ -4,6 +4,7 @@ import { useEffect } from "react";
 import { createPortal } from "react-dom";
 import Image from "next/image";
 import type { MenuItemData } from "@/data/menu";
+import { useLocale } from "@/lib/i18n/LocaleProvider";
 import { lockBodyScroll, unlockBodyScroll } from "@/lib/scroll-lock";
 
 interface MenuLightboxProps {
@@ -12,6 +13,7 @@ interface MenuLightboxProps {
 }
 
 export default function MenuLightbox({ item, onClose }: MenuLightboxProps) {
+  const { t } = useLocale();
   useEffect(() => {
     if (!item) return;
 
@@ -48,9 +50,9 @@ export default function MenuLightbox({ item, onClose }: MenuLightboxProps) {
           type="button"
           onClick={onClose}
           className="absolute top-0 right-0 z-10 flex h-12 w-12 items-center justify-center text-cream/40 transition-colors duration-300 hover:text-champagne"
-          aria-label="Fermer"
+          aria-label={t.a11y.close}
         >
-          <span className="sr-only">Fermer</span>
+          <span className="sr-only">{t.a11y.close}</span>
           <svg
             width="14"
             height="14"

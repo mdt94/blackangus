@@ -1,11 +1,15 @@
 "use client";
 
 import { useState } from "react";
-import { menuCategories, type MenuCategoryId, type MenuItemData } from "@/data/menu";
+import type { MenuCategoryId, MenuItemData } from "@/data/menu";
+import { useLocale } from "@/lib/i18n/LocaleProvider";
+import { getLocalizedMenuCategories } from "@/lib/i18n/menu";
 import MenuListItem from "./MenuListItem";
 import MenuLightbox from "./MenuLightbox";
 
 export default function MenuTabs() {
+  const { locale, t } = useLocale();
+  const menuCategories = getLocalizedMenuCategories(locale);
   const [activeTab, setActiveTab] = useState<MenuCategoryId>("meats");
   const [selectedItem, setSelectedItem] = useState<MenuItemData | null>(null);
   const activeCategory = menuCategories.find((c) => c.id === activeTab)!;
@@ -15,7 +19,7 @@ export default function MenuTabs() {
       <div>
         <div
           role="tablist"
-          aria-label="Catégories du menu"
+          aria-label={t.a11y.menuCategories}
           className="flex flex-wrap gap-x-7 gap-y-2"
         >
           {menuCategories.map((category) => {
@@ -55,7 +59,7 @@ export default function MenuTabs() {
               )}
               {activeCategory.defaultPrice && (
                 <p className="text-sm text-foreground-muted">
-                  {activeCategory.defaultPrice} l&apos;unité
+                  {activeCategory.defaultPrice} {t.menu.perUnit}
                 </p>
               )}
               {activeCategory.note && (

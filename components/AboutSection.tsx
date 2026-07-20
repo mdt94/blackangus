@@ -1,7 +1,19 @@
+"use client";
+
 import Image from "next/image";
 import ScrollReveal from "./ScrollReveal";
+import { useLocale } from "@/lib/i18n/LocaleProvider";
 
 export default function AboutSection() {
+  const { t } = useLocale();
+
+  const stats = [
+    { value: "15+", label: t.about.stats.years },
+    { value: "28 j", label: t.about.stats.aging },
+    { value: "100 %", label: t.about.stats.angus },
+    { value: "4,9", label: t.about.stats.rating },
+  ];
+
   return (
     <section id="a-propos" className="bg-background py-24 lg:py-32">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
@@ -9,19 +21,11 @@ export default function AboutSection() {
           <ScrollReveal>
             <div className="max-w-lg">
               <h2 className="section-title text-[clamp(2.25rem,5vw,4rem)]">
-                Une adresse de viande, face à la République
+                {t.about.title}
               </h2>
-              <p className="section-lead mt-7">
-                Sélection, maturation et cuisson au feu. Formules complètes,
-                sauces versées à table, service discret.
-              </p>
+              <p className="section-lead mt-7">{t.about.lead}</p>
               <dl className="mt-12 grid grid-cols-2 gap-x-10 gap-y-8 border-t border-line pt-10">
-                {[
-                  { value: "15+", label: "Années" },
-                  { value: "28 j", label: "Maturation" },
-                  { value: "100 %", label: "Black Angus" },
-                  { value: "4,9", label: "Note clients" },
-                ].map((stat) => (
+                {stats.map((stat) => (
                   <div key={stat.label}>
                     <dt className="font-heading text-3xl text-cream">{stat.value}</dt>
                     <dd className="mt-1 text-sm text-foreground-muted">{stat.label}</dd>
@@ -36,7 +40,7 @@ export default function AboutSection() {
               <div className="relative aspect-[4/5] overflow-hidden">
                 <Image
                   src="/images/filet.jpg"
-                  alt="Filet Angus et frites, sauce signature versée à table"
+                  alt={t.about.imageAlt1}
                   fill
                   sizes="(max-width: 1024px) 90vw, 42vw"
                   className="object-cover"
@@ -47,7 +51,7 @@ export default function AboutSection() {
                 <div className="relative aspect-[4/5] overflow-hidden">
                   <Image
                     src="/images/sauce-verte.jpg"
-                    alt="Sauce verte maison sur cœur de rumsteak"
+                    alt={t.about.imageAlt2}
                     fill
                     sizes="28vw"
                     className="object-cover"

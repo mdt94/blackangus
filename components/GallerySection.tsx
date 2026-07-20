@@ -3,60 +3,46 @@
 import { useState } from "react";
 import Image from "next/image";
 import ScrollReveal from "./ScrollReveal";
+import { useLocale } from "@/lib/i18n/LocaleProvider";
 
-const gallery = [
-  {
-    id: "rumsteak",
+const galleryIds = [
+  "rumsteak",
+  "sauce-verte",
+  "profiteroles",
+  "fondant",
+  "tarte",
+  "filet",
+] as const;
+
+const galleryMeta = {
+  rumsteak: {
     src: "/images/rumsteak.jpg",
-    alt: "Formule Black Angus avec rumsteak, frites, purée et salade",
-    name: "Formule Black Red",
-    description:
-      "Cœur de rumsteak Angus, frites, purée et salade — dressée à table.",
     objectPosition: "center 40%",
   },
-  {
-    id: "sauce-verte",
+  "sauce-verte": {
     src: "/images/sauce-verte.jpg",
-    alt: "Sauce verte versée sur une pièce de bœuf Angus",
-    name: "Sauce verte",
-    description: "Herbes fraîches et beurre, versés à la demande.",
     objectPosition: "center center",
   },
-  {
-    id: "profiteroles",
+  profiteroles: {
     src: "/images/profiteroles-2.jpg",
-    alt: "Profiteroles au chocolat",
-    name: "Profiteroles",
-    description: "Choux, crème vanille, nappage chocolat chaud.",
     objectPosition: "center 45%",
   },
-  {
-    id: "fondant",
+  fondant: {
     src: "/images/fondant-chocolat.jpg",
-    alt: "Moelleux au chocolat et glace vanille",
-    name: "Moelleux au chocolat",
-    description: "Cœur coulant, glace vanille, sauce chocolat à table.",
     objectPosition: "center 35%",
   },
-  {
-    id: "tarte",
+  tarte: {
     src: "/images/tarte.jpg",
-    alt: "Tarte aux pommes maison",
-    name: "Tarte maison",
-    description: "Pomme, poire ou citron — pâte sablée, amandes.",
     objectPosition: "center 40%",
   },
-  {
-    id: "filet",
+  filet: {
     src: "/images/filet.jpg",
-    alt: "Filet Angus et frites, sauce signature",
-    name: "Black Premium",
-    description: "Filet Angus, frites, sauce maison coulée à table.",
     objectPosition: "center 40%",
   },
-];
+} as const;
 
 export default function GallerySection() {
+  const { t } = useLocale();
   const [activeId, setActiveId] = useState<string | null>(null);
 
   return (
@@ -65,41 +51,39 @@ export default function GallerySection() {
         <ScrollReveal>
           <div className="max-w-xl">
             <h2 className="section-title text-[clamp(2.25rem,5vw,4rem)]">
-              L&apos;assiette
+              {t.gallery.title}
             </h2>
-            <p className="section-lead mt-5">
-              Survolez une photographie pour en lire la composition.
-            </p>
+            <p className="section-lead mt-5">{t.gallery.lead}</p>
           </div>
         </ScrollReveal>
 
         <div className="mt-14 grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3 lg:gap-4">
-          {gallery.map((shot, index) => {
-            const isActive = activeId === shot.id;
+          {galleryIds.map((id, index) => {
+            const shot = t.gallery.shots[id];
+            const meta = galleryMeta[id];
+            const isActive = activeId === id;
 
             return (
-              <ScrollReveal key={shot.id} delay={index * 50}>
+              <ScrollReveal key={id} delay={index * 50}>
                 <button
                   type="button"
                   className="group relative block aspect-[4/5] w-full cursor-pointer overflow-hidden border-0 bg-transparent p-0 text-left outline-none focus-visible:ring-1 focus-visible:ring-champagne/40"
                   aria-label={`${shot.name}. ${shot.description}`}
                   aria-expanded={isActive}
-                  onMouseEnter={() => setActiveId(shot.id)}
+                  onMouseEnter={() => setActiveId(id)}
                   onMouseLeave={() => setActiveId(null)}
-                  onFocus={() => setActiveId(shot.id)}
+                  onFocus={() => setActiveId(id)}
                   onBlur={() => setActiveId(null)}
                   onClick={() => {
                     const canHover =
                       typeof window !== "undefined" &&
                       window.matchMedia("(hover: hover)").matches;
                     if (canHover) return;
-                    setActiveId((current) =>
-                      current === shot.id ? null : shot.id,
-                    );
+                    setActiveId((current) => (current === id ? null : id));
                   }}
                 >
                   <Image
-                    src={shot.src}
+                    src={meta.src}
                     alt={shot.alt}
                     fill
                     sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
@@ -108,7 +92,7 @@ export default function GallerySection() {
                         ? "scale-[1.02] brightness-[0.5]"
                         : "scale-100 brightness-100 group-hover:scale-[1.02] group-hover:brightness-[0.5]"
                     }`}
-                    style={{ objectPosition: shot.objectPosition }}
+                    style={{ objectPosition: meta.objectPosition }}
                   />
 
                   <div

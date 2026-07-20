@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import { Work_Sans } from "next/font/google";
+import Providers from "@/components/Providers";
 import "../styles/globals.css";
 
 const workSans = Work_Sans({
@@ -9,20 +10,20 @@ const workSans = Work_Sans({
   weight: ["400", "500"],
 });
 
-const telma = localFont({
+const erode = localFont({
   src: [
     {
-      path: "./fonts/Telma-Regular.woff2",
+      path: "./fonts/Erode-Regular.woff2",
       weight: "400",
       style: "normal",
     },
     {
-      path: "./fonts/Telma-Medium.woff2",
+      path: "./fonts/Erode-Medium.woff2",
       weight: "500",
       style: "normal",
     },
     {
-      path: "./fonts/Telma-Bold.woff2",
+      path: "./fonts/Erode-Bold.woff2",
       weight: "700",
       style: "normal",
     },
@@ -96,10 +97,10 @@ export default function RootLayout({
   return (
     <html
       lang="fr"
-      className={`${workSans.variable} ${telma.variable} scroll-smooth antialiased`}
+      className={`${workSans.variable} ${erode.variable} scroll-smooth antialiased`}
     >
       <body className="min-h-screen overflow-x-hidden bg-background text-foreground">
-        {children}
+        <Providers>{children}</Providers>
       </body>
     </html>
   );

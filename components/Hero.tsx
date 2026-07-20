@@ -1,8 +1,13 @@
+"use client";
+
 import Button from "./Button";
+import { useLocale } from "@/lib/i18n/LocaleProvider";
 
 const HERO_IMAGE = "/images/hero-steak.jpg";
 
 export default function Hero() {
+  const { t } = useLocale();
+
   return (
     <section
       id="accueil"
@@ -21,28 +26,27 @@ export default function Hero() {
             className="animate-hero-rise text-sm text-cream/70"
             style={{ animationDelay: "0.05s", opacity: 0 }}
           >
-            8 Place de la République · Paris 11e
+            {t.hero.address}
           </p>
           <h1
             className="section-title animate-hero-rise mt-5 text-[clamp(2.75rem,7vw,5.5rem)]"
             style={{ animationDelay: "0.15s", opacity: 0 }}
           >
-            Black Angus République
+            {t.hero.title}
           </h1>
           <p
             className="animate-hero-rise mt-6 max-w-md text-base leading-relaxed text-foreground-muted sm:text-lg"
             style={{ animationDelay: "0.28s", opacity: 0 }}
           >
-            Viande Black Angus maturée, grillée au feu, servie avec l&apos;attention
-            d&apos;une maison parisienne.
+            {t.hero.lead}
           </p>
           <div
             className="animate-hero-rise mt-10 flex flex-wrap items-center gap-x-8 gap-y-4"
             style={{ animationDelay: "0.4s", opacity: 0 }}
           >
-            <Button href="#menu">Découvrir la carte</Button>
+            <Button href="#menu">{t.hero.ctaMenu}</Button>
             <Button href="#contact" variant="ghost">
-              Réserver une table
+              {t.hero.ctaReserve}
             </Button>
           </div>
         </div>

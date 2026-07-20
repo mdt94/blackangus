@@ -3,17 +3,20 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { lockBodyScroll, unlockBodyScroll } from "@/lib/scroll-lock";
-
-const navLinks = [
-  { href: "#a-propos", label: "Le restaurant" },
-  { href: "#menu", label: "Carte" },
-  { href: "#galerie", label: "Photos" },
-  { href: "#contact", label: "Contact" },
-];
+import { useLocale } from "@/lib/i18n/LocaleProvider";
+import LocaleSwitcher from "./LocaleSwitcher";
 
 export default function Navbar() {
+  const { t } = useLocale();
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+
+  const navLinks = [
+    { href: "#a-propos", label: t.nav.about },
+    { href: "#menu", label: t.nav.menu },
+    { href: "#galerie", label: t.nav.gallery },
+    { href: "#contact", label: t.nav.contact },
+  ];
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 48);
@@ -62,30 +65,36 @@ export default function Navbar() {
           ))}
         </ul>
 
-        <Link
-          href="#contact"
-          className="hidden text-[0.9375rem] text-cream underline decoration-cream/25 underline-offset-[6px] transition-[color,decoration-color] duration-300 hover:text-champagne hover:decoration-champagne/50 md:inline"
-        >
-          Réserver
-        </Link>
+        <div className="hidden items-center gap-8 md:flex">
+          <LocaleSwitcher />
+          <Link
+            href="#contact"
+            className="text-[0.9375rem] text-cream underline decoration-cream/25 underline-offset-[6px] transition-[color,decoration-color] duration-300 hover:text-champagne hover:decoration-champagne/50"
+          >
+            {t.nav.reserve}
+          </Link>
+        </div>
 
-        <button
-          type="button"
-          aria-label={menuOpen ? "Fermer le menu" : "Ouvrir le menu"}
-          aria-expanded={menuOpen}
-          className="flex flex-col gap-1.5 md:hidden"
-          onClick={() => setMenuOpen(!menuOpen)}
-        >
-          <span
-            className={`block h-px w-5 bg-cream transition-transform duration-300 ${menuOpen ? "translate-y-[5px] rotate-45" : ""}`}
-          />
-          <span
-            className={`block h-px w-5 bg-cream transition-opacity duration-300 ${menuOpen ? "opacity-0" : ""}`}
-          />
-          <span
-            className={`block h-px w-5 bg-cream transition-transform duration-300 ${menuOpen ? "-translate-y-[5px] -rotate-45" : ""}`}
-          />
-        </button>
+        <div className="flex items-center gap-5 md:hidden">
+          <LocaleSwitcher />
+          <button
+            type="button"
+            aria-label={menuOpen ? t.a11y.closeMenu : t.a11y.openMenu}
+            aria-expanded={menuOpen}
+            className="flex flex-col gap-1.5"
+            onClick={() => setMenuOpen(!menuOpen)}
+          >
+            <span
+              className={`block h-px w-5 bg-cream transition-transform duration-300 ${menuOpen ? "translate-y-[5px] rotate-45" : ""}`}
+            />
+            <span
+              className={`block h-px w-5 bg-cream transition-opacity duration-300 ${menuOpen ? "opacity-0" : ""}`}
+            />
+            <span
+              className={`block h-px w-5 bg-cream transition-transform duration-300 ${menuOpen ? "-translate-y-[5px] -rotate-45" : ""}`}
+            />
+          </button>
+        </div>
       </nav>
 
       <div
@@ -111,7 +120,7 @@ export default function Navbar() {
               onClick={() => setMenuOpen(false)}
               className="text-base text-champagne"
             >
-              Réserver une table
+              {t.nav.bookTable}
             </Link>
           </li>
         </ul>

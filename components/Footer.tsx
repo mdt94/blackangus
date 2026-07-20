@@ -1,6 +1,19 @@
+"use client";
+
 import Link from "next/link";
+import { useLocale } from "@/lib/i18n/LocaleProvider";
 
 export default function Footer() {
+  const { t } = useLocale();
+
+  const footerLinks = [
+    { href: "#accueil", label: t.footer.home },
+    { href: "#a-propos", label: t.nav.about },
+    { href: "#menu", label: t.nav.menu },
+    { href: "#galerie", label: t.nav.gallery },
+    { href: "#contact", label: t.nav.contact },
+  ];
+
   return (
     <footer className="border-t border-line bg-surface">
       <div className="mx-auto max-w-7xl px-6 py-14 lg:px-8 lg:py-16">
@@ -8,20 +21,14 @@ export default function Footer() {
           <div>
             <p className="font-heading text-xl text-cream">Black Angus</p>
             <p className="mt-3 max-w-xs text-sm leading-relaxed text-foreground-muted">
-              Steakhouse Black Angus, place de la République — Paris 11e.
+              {t.footer.tagline}
             </p>
           </div>
 
           <div>
-            <p className="text-sm text-cream">Navigation</p>
+            <p className="text-sm text-cream">{t.footer.navigation}</p>
             <ul className="mt-4 space-y-2.5">
-              {[
-                { href: "#accueil", label: "Accueil" },
-                { href: "#a-propos", label: "Le restaurant" },
-                { href: "#menu", label: "Carte" },
-                { href: "#galerie", label: "Photos" },
-                { href: "#contact", label: "Contact" },
-              ].map((link) => (
+              {footerLinks.map((link) => (
                 <li key={link.href}>
                   <Link
                     href={link.href}
@@ -35,18 +42,18 @@ export default function Footer() {
           </div>
 
           <div>
-            <p className="text-sm text-cream">Horaires</p>
+            <p className="text-sm text-cream">{t.footer.hours}</p>
             <ul className="mt-4 space-y-2 text-sm text-foreground-muted">
-              <li>Lun – Jeu · 12h – 23h</li>
-              <li>Ven – Sam · 12h – 00h</li>
-              <li>Dim · 12h – 22h</li>
+              <li>{t.footer.hoursWeek}</li>
+              <li>{t.footer.hoursWeekend}</li>
+              <li>{t.footer.hoursSunday}</li>
             </ul>
           </div>
         </div>
 
         <div className="mt-12 flex flex-col gap-2 border-t border-line pt-8 text-xs text-foreground-muted sm:flex-row sm:items-center sm:justify-between">
           <p>© {new Date().getFullYear()} Black Angus République</p>
-          <p>8 Place de la République, 75011 Paris</p>
+          <p>{t.contact.values.address}</p>
         </div>
       </div>
     </footer>
