@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
-import { Bodoni_Moda, Work_Sans } from "next/font/google";
+import localFont from "next/font/local";
+import { Work_Sans } from "next/font/google";
 import "../styles/globals.css";
 
 const workSans = Work_Sans({
@@ -8,11 +9,26 @@ const workSans = Work_Sans({
   weight: ["400", "500"],
 });
 
-const bodoni = Bodoni_Moda({
+const telma = localFont({
+  src: [
+    {
+      path: "./fonts/Telma-Regular.woff2",
+      weight: "400",
+      style: "normal",
+    },
+    {
+      path: "./fonts/Telma-Medium.woff2",
+      weight: "500",
+      style: "normal",
+    },
+    {
+      path: "./fonts/Telma-Bold.woff2",
+      weight: "700",
+      style: "normal",
+    },
+  ],
   variable: "--font-display",
-  subsets: ["latin"],
-  weight: ["400", "500", "600"],
-  style: ["normal", "italic"],
+  display: "swap",
 });
 
 const siteUrl = "https://www.blackangus-republique.fr";
@@ -80,7 +96,7 @@ export default function RootLayout({
   return (
     <html
       lang="fr"
-      className={`${workSans.variable} ${bodoni.variable} scroll-smooth antialiased`}
+      className={`${workSans.variable} ${telma.variable} scroll-smooth antialiased`}
     >
       <body className="min-h-screen overflow-x-hidden bg-background text-foreground">
         {children}
