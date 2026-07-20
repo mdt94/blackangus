@@ -34,7 +34,7 @@ export default function MenuLightbox({ item, onClose }: MenuLightboxProps) {
   return createPortal(
     <div
       key={item.id}
-      className="animate-lightbox-backdrop fixed inset-0 z-[100] flex items-center justify-center overflow-y-auto overscroll-y-contain bg-[#141210]/75 p-5 backdrop-blur-sm sm:p-8"
+      className="animate-lightbox-backdrop fixed inset-0 z-[100] flex items-center justify-center overflow-y-auto overscroll-y-contain bg-[#141210]/85 p-5 sm:p-8"
       role="dialog"
       aria-modal="true"
       aria-labelledby="lightbox-title"

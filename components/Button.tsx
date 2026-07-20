@@ -6,10 +6,8 @@ interface ButtonProps {
   children: React.ReactNode;
   className?: string;
   type?: "button" | "submit";
+  variant?: "primary" | "ghost";
 }
-
-const baseStyles =
-  "inline-flex items-center justify-center border border-foreground/25 bg-transparent px-7 py-3 text-[0.7rem] font-medium tracking-[0.12em] uppercase text-foreground transition-colors duration-300 hover:border-champagne hover:text-champagne";
 
 export default function Button({
   href,
@@ -17,8 +15,14 @@ export default function Button({
   children,
   className = "",
   type = "button",
+  variant = "primary",
 }: ButtonProps) {
-  const combined = `${baseStyles} ${className}`;
+  const styles =
+    variant === "ghost"
+      ? "inline-flex items-center border-0 bg-transparent px-0 py-1 text-sm text-cream underline decoration-cream/30 underline-offset-[6px] transition-[color,decoration-color] duration-300 hover:text-champagne hover:decoration-champagne/60"
+      : "inline-flex items-center justify-center border border-cream/30 bg-transparent px-6 py-2.5 text-sm text-cream transition-colors duration-300 hover:border-champagne hover:text-champagne";
+
+  const combined = `${styles} ${className}`;
 
   if (href) {
     return (

@@ -13,40 +13,35 @@ const contactDetails = [
 
 export default function ContactSection() {
   return (
-    <section id="contact" className="bg-background py-28 lg:py-36">
+    <section id="contact" className="bg-background py-24 lg:py-32">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <ScrollReveal>
-          <div>
-            <p className="section-eyebrow">Réservation</p>
-            <h2 className="section-title mt-6 text-5xl sm:text-6xl lg:text-7xl">
-              Une table
-              <br />
-              <span className="italic font-normal text-champagne">pour vous</span>
-            </h2>
-          </div>
+          <h2 className="section-title text-[clamp(2.25rem,5vw,4rem)]">
+            Réserver une table
+          </h2>
         </ScrollReveal>
 
-        <div className="mt-16 grid items-start gap-14 lg:grid-cols-2 lg:gap-20">
+        <div className="mt-14 grid items-start gap-14 lg:grid-cols-2 lg:gap-20">
           <ScrollReveal>
             <div className="space-y-8">
-              <p className="max-w-sm text-[0.95rem] leading-relaxed text-foreground-muted">
-                Adressez-nous votre demande — nous confirmons votre réservation
-                sous vingt-quatre heures.
+              <p className="section-lead">
+                Adressez-nous votre demande — confirmation sous vingt-quatre
+                heures.
               </p>
-              <dl className="space-y-6">
+              <dl className="space-y-5">
                 {contactDetails.map((detail) => (
                   <div key={detail.label}>
-                    <dt className="text-xs font-medium tracking-wide text-champagne">
+                    <dt className="text-sm text-foreground-muted">
                       {detail.label}
                     </dt>
-                    <dd className="mt-2 text-sm text-cream">{detail.value}</dd>
+                    <dd className="mt-1 text-base text-cream">{detail.value}</dd>
                   </div>
                 ))}
               </dl>
             </div>
           </ScrollReveal>
 
-          <ScrollReveal delay={160}>
+          <ScrollReveal delay={120}>
             <ReservationForm />
           </ScrollReveal>
         </div>

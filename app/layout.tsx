@@ -1,14 +1,14 @@
 import type { Metadata } from "next";
-import { Archivo, Cormorant_Garamond } from "next/font/google";
+import { Bodoni_Moda, Work_Sans } from "next/font/google";
 import "../styles/globals.css";
 
-const archivo = Archivo({
+const workSans = Work_Sans({
   variable: "--font-body",
   subsets: ["latin"],
-  weight: ["400", "500", "600"],
+  weight: ["400", "500"],
 });
 
-const cormorant = Cormorant_Garamond({
+const bodoni = Bodoni_Moda({
   variable: "--font-display",
   subsets: ["latin"],
   weight: ["400", "500", "600"],
@@ -80,9 +80,9 @@ export default function RootLayout({
   return (
     <html
       lang="fr"
-      className={`${archivo.variable} ${cormorant.variable} scroll-smooth antialiased`}
+      className={`${workSans.variable} ${bodoni.variable} scroll-smooth antialiased`}
     >
-      <body className="min-h-screen overflow-x-hidden overflow-y-auto bg-background text-foreground">
+      <body className="min-h-screen overflow-x-hidden bg-background text-foreground">
         {children}
       </body>
     </html>

@@ -3,43 +3,40 @@ import ScrollReveal from "./ScrollReveal";
 const testimonials = [
   {
     quote:
-      "Viande tendre, service soigné. La sauce rouge est une vraie découverte.",
+      "Une viande d'une tendreté remarquable. La sauce rouge est une vraie signature.",
     author: "Julien M.",
   },
   {
     quote:
-      "L'entrecôte Black Angus la meilleure que j'ai mangée à Paris — ambiance juste comme il faut.",
+      "L'entrecôte Black Angus, servie avec simplicité et précision — l'une des meilleures tables du quartier.",
     author: "Sophie L.",
   },
   {
     quote:
-      "Cocktails bien trouvés, cuisson impeccable. On y retourne.",
+      "Cocktails soignés, cuisson maîtrisée, ambiance feutrée. Nous y revenons.",
     author: "Antoine D.",
   },
 ];
 
 export default function TestimonialsSection() {
   return (
-    <section id="avis" className="bg-surface py-28 lg:py-36">
+    <section id="avis" className="bg-surface py-24 lg:py-32">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <ScrollReveal>
-          <div className="max-w-xl">
-            <p className="section-eyebrow">Témoignages</p>
-            <h2 className="section-title mt-6 text-5xl sm:text-6xl lg:text-7xl">
-              Ils en parlent
-            </h2>
-          </div>
+          <h2 className="section-title max-w-xl text-[clamp(2rem,4vw,3.25rem)]">
+            Ce que disent nos convives
+          </h2>
         </ScrollReveal>
 
-        <div className="mt-16 grid gap-10 md:grid-cols-3 md:gap-12">
+        <div className="mt-14 grid gap-12 md:grid-cols-3 md:gap-10">
           {testimonials.map((review, index) => (
-            <ScrollReveal key={review.author} delay={index * 100}>
-              <blockquote className="border-l border-champagne/40 pl-6">
-                <p className="font-heading text-xl italic leading-relaxed text-cream/90 sm:text-[1.35rem]">
-                  {review.quote}
+            <ScrollReveal key={review.author} delay={index * 80}>
+              <blockquote>
+                <p className="font-heading text-xl italic leading-relaxed text-cream/90">
+                  &ldquo;{review.quote}&rdquo;
                 </p>
-                <footer className="mt-6 text-sm text-foreground-muted">
-                  — {review.author}
+                <footer className="mt-5 text-sm text-foreground-muted">
+                  {review.author}
                 </footer>
               </blockquote>
             </ScrollReveal>

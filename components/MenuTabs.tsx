@@ -16,7 +16,7 @@ export default function MenuTabs() {
         <div
           role="tablist"
           aria-label="Catégories du menu"
-          className="flex flex-wrap gap-x-8 gap-y-3 border-b border-line pb-1"
+          className="flex flex-wrap gap-x-7 gap-y-2"
         >
           {menuCategories.map((category) => {
             const isActive = activeTab === category.id;
@@ -26,7 +26,7 @@ export default function MenuTabs() {
                 role="tab"
                 aria-selected={isActive}
                 onClick={() => setActiveTab(category.id)}
-                className={`relative pb-4 text-sm transition-colors duration-300 ${
+                className={`relative pb-2 text-[0.9375rem] transition-colors duration-300 ${
                   isActive
                     ? "text-cream"
                     : "text-foreground-muted hover:text-cream/80"
@@ -34,8 +34,8 @@ export default function MenuTabs() {
               >
                 {category.label}
                 <span
-                  className={`absolute bottom-0 left-0 h-px w-full origin-left bg-champagne transition-transform duration-300 ${
-                    isActive ? "scale-x-100" : "scale-x-0"
+                  className={`absolute bottom-0 left-0 h-px bg-champagne transition-[width,opacity] duration-300 ease-out ${
+                    isActive ? "w-full opacity-100" : "w-0 opacity-0"
                   }`}
                 />
               </button>
@@ -43,13 +43,13 @@ export default function MenuTabs() {
           })}
         </div>
 
-        <div role="tabpanel" className="mt-12" key={activeTab}>
+        <div role="tabpanel" className="mt-10 animate-hero-rise" key={activeTab}>
           {(activeCategory.subtitle ||
             activeCategory.note ||
             activeCategory.defaultPrice) && (
-            <div className="mb-12 space-y-3">
+            <div className="mb-10 space-y-2">
               {activeCategory.subtitle && (
-                <p className="font-heading text-lg italic text-cream/75">
+                <p className="font-heading text-lg italic text-cream/80">
                   {activeCategory.subtitle}
                 </p>
               )}
@@ -64,7 +64,7 @@ export default function MenuTabs() {
             </div>
           )}
 
-          <div className="mx-auto flex max-w-3xl flex-col divide-y divide-line pb-16 md:pb-20">
+          <div className="mx-auto flex max-w-3xl flex-col divide-y divide-line pb-12 md:pb-16">
             {activeCategory.items.map((item) => (
               <MenuListItem
                 key={item.id}

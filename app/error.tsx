@@ -16,20 +16,19 @@ export default function Error({
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-center bg-background px-6 text-center">
-      <p className="section-eyebrow">Service momentanément indisponible</p>
-      <h1 className="section-title mt-6 text-6xl sm:text-7xl lg:text-8xl">
-        Un imprévu
-        <br />
-        <span className="italic font-normal text-champagne">est survenu</span>
+      <h1 className="section-title text-[clamp(2.5rem,6vw,4.5rem)]">
+        Un imprévu est survenu
       </h1>
-      <p className="mt-6 max-w-md text-[0.95rem] leading-relaxed text-foreground-muted">
+      <p className="section-lead mt-6">
         Veuillez réessayer dans un instant, ou revenir à l&apos;accueil.
       </p>
-      <div className="mt-12 flex flex-col items-center gap-4 sm:flex-row">
+      <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row">
         <Button type="button" onClick={() => unstable_retry()}>
           Réessayer
         </Button>
-        <Button href="/">Retourner à l&apos;accueil</Button>
+        <Button href="/" variant="ghost">
+          Retourner à l&apos;accueil
+        </Button>
       </div>
     </main>
   );

@@ -20,6 +20,15 @@ export default function ScrollReveal({
     const el = ref.current;
     if (!el) return;
 
+    const reducedMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)",
+    ).matches;
+
+    if (reducedMotion) {
+      setVisible(true);
+      return;
+    }
+
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
@@ -27,7 +36,7 @@ export default function ScrollReveal({
           observer.unobserve(el);
         }
       },
-      { threshold: 0.1, rootMargin: "0px 0px -40px 0px" },
+      { threshold: 0.12, rootMargin: "0px 0px -5% 0px" },
     );
 
     observer.observe(el);
@@ -38,9 +47,7 @@ export default function ScrollReveal({
     <div
       ref={ref}
       style={{ transitionDelay: `${delay}ms` }}
-      className={`transition-all duration-1000 ease-out ${
-        visible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
-      } ${className}`}
+      className={`reveal ${visible ? "reveal-visible" : ""} ${className}`}
     >
       {children}
     </div>

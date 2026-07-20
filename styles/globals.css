@@ -2,12 +2,12 @@
 
 :root {
   --background: #141210;
-  --surface: #1c1916;
+  --surface: #1a1816;
   --foreground: #ebe6df;
-  --foreground-muted: #9a9288;
-  --accent: #c4a574;
-  --accent-light: #d4b896;
-  --line: rgb(235 230 223 / 0.12);
+  --foreground-muted: #a39a90;
+  --accent: #b8956a;
+  --line: rgb(235 230 223 / 0.1);
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 @theme inline {
@@ -16,18 +16,26 @@
   --color-foreground: var(--foreground);
   --color-foreground-muted: var(--foreground-muted);
   --color-cream: #ebe6df;
-  --color-onyx: #141210;
-  --color-champagne: #c4a574;
-  --color-champagne-light: #d4b896;
+  --color-champagne: var(--accent);
   --color-line: var(--line);
 
   --font-sans: var(--font-body);
   --font-heading: var(--font-display);
 
-  --animate-fade-in-up: fade-in-up 1s ease-out forwards;
-  --animate-scroll-line: scroll-line 2.4s ease-in-out infinite;
-  --animate-lightbox-backdrop: lightbox-backdrop 0.5s ease-out forwards;
-  --animate-lightbox-content: lightbox-content 0.55s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  --animate-hero-rise: hero-rise 1.1s var(--ease-out-expo) forwards;
+  --animate-lightbox-backdrop: lightbox-backdrop 0.45s ease-out forwards;
+  --animate-lightbox-content: lightbox-content 0.5s var(--ease-out-expo) forwards;
+
+  @keyframes hero-rise {
+    from {
+      opacity: 0;
+      transform: translateY(1.75rem);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
 
   @keyframes lightbox-backdrop {
     from {
@@ -41,34 +49,11 @@
   @keyframes lightbox-content {
     from {
       opacity: 0;
-      transform: translateY(1rem);
+      transform: translateY(0.75rem);
     }
     to {
       opacity: 1;
       transform: translateY(0);
-    }
-  }
-
-  @keyframes fade-in-up {
-    from {
-      opacity: 0;
-      transform: translateY(1.25rem);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-
-  @keyframes scroll-line {
-    0%,
-    100% {
-      opacity: 0.25;
-      transform: scaleY(0.55);
-    }
-    50% {
-      opacity: 0.9;
-      transform: scaleY(1);
     }
   }
 }
@@ -76,7 +61,6 @@
 html {
   scroll-behavior: smooth;
   overflow-x: hidden;
-  overflow-y: auto;
 }
 
 body {
@@ -85,27 +69,41 @@ body {
   font-family: var(--font-body), system-ui, sans-serif;
   min-height: 100%;
   overflow-x: hidden;
-  overflow-y: auto;
 }
 
 .font-heading {
-  font-family: var(--font-display), Georgia, "Times New Roman", serif;
+  font-family: var(--font-display), Georgia, serif;
 }
 
 .section-title {
-  font-family: var(--font-display), Georgia, "Times New Roman", serif;
+  font-family: var(--font-display), Georgia, serif;
   font-weight: 400;
-  letter-spacing: -0.02em;
-  line-height: 1.05;
+  letter-spacing: -0.025em;
+  line-height: 1.08;
   color: #ebe6df;
+  text-wrap: balance;
 }
 
-.section-eyebrow {
-  font-size: 0.6875rem;
-  font-weight: 500;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  color: var(--accent);
+.section-lead {
+  max-width: 34rem;
+  font-size: 1.05rem;
+  line-height: 1.75;
+  color: var(--foreground-muted);
+  text-wrap: pretty;
+}
+
+.reveal {
+  transform: translateY(0);
+  transition:
+    transform 0.9s var(--ease-out-expo),
+    opacity 0.9s var(--ease-out-expo);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .reveal:not(.reveal-visible) {
+    transform: translateY(1.75rem);
+    opacity: 0.92;
+  }
 }
 
 .input-luxury {
@@ -116,14 +114,33 @@ body {
   border-radius: 0;
   padding: 0.875rem 0;
   color: var(--foreground);
-  transition: border-color 0.35s ease;
+  transition: border-color 0.3s ease;
 }
 
 .input-luxury::placeholder {
-  color: rgb(235 230 223 / 0.35);
+  color: rgb(235 230 223 / 0.38);
 }
 
 .input-luxury:focus {
   outline: none;
   border-bottom-color: var(--accent);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .reveal:not(.reveal-visible) {
+    transform: none;
+    opacity: 1;
+  }
 }
